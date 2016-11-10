@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<package >
+  <metadata>
+    <id>Adfa.Bot.Builder.Extensions</id>
+    <version>0.6.1</version>
+    <title>Bot Builder Extensions</title>
+    <authors>Adebisi Foluso A.</authors>
+    <owners>Adebisi Foluso A.</owners>
+    <licenseUrl>https://github.com/adebisi-fa/Bot.Builder.Extensions/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/adebisi-fa/Bot.Builder.Extensions</projectUrl>
+    <iconUrl>http://uploads.webflow.com/565d5a0cdee07e0131e751d2/565d5a0d6555090131ce1561_botan_logo.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Microsoft Bot Framework extensions for small-scale and/or enterprise bots.</description>
+    <releaseNotes>Extends IDialogContext to provide IDialog&lt;T&gt; with authentication, authorization, easy closing with verbs, among others.
+  </releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>Bot Framework Builder Authentication Extensions</tags>
+    <dependencies>
+      <dependency id="Microsoft.Bot.Builder" version="3.3.1" />
+    </dependencies>
+  </metadata>
+</package>
