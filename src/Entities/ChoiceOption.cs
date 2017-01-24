@@ -18,7 +18,7 @@ namespace Adfa.Bot.Builder.Extensions
 
         public override string ToString()
         {
-            return $"{Index}. {Description}";
+            return $"{Index} - {Description}";
         }
     }
 }

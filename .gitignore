@@ -250,3 +250,6 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/src/.build/MSBuild.Community.Tasks.dll
+/src/nuget/lib/net45/Adfa.Bot.Builder.Extensions.dll
+/src/nuget.exe

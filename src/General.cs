@@ -10,7 +10,7 @@ namespace Adfa.Bot.Builder.Extensions
 {
     public static partial class DialogContextExtensions
     {
-        public static IEnumerable<ChoiceOption> ToChoiceOptions(this IEnumerable<string> options)
+        public static IEnumerable<ChoiceOption> ToChoiceOptions(this IEnumerable<string> options, bool appendSuffixToOptionDescriptions = false, string optionSuffix = "\n\n")
         {
             for (int i = 1; i <= options.Count(); i++)
             {
@@ -22,6 +22,10 @@ namespace Adfa.Bot.Builder.Extensions
 
                 var choice = ChoiceOption.New(textDescription[0], textDescription[1]);
                 choice.Index = i;
+
+                if (appendSuffixToOptionDescriptions)
+                    choice.Description = choice.Description + optionSuffix;
+
                 yield return choice;
             }
         }
@@ -31,13 +35,16 @@ namespace Adfa.Bot.Builder.Extensions
         public static bool TryParseAndQuit<T>(this IDialogContext context, string message, bool forceQuit = true, T value = default(T))
         {
             var quitWords = new string[] { "quit", "exit", "return", "cancel", "leave", "terminate", "abandon", "end", "bye", "close", "done" };
-            if (quitWords.Any(w => message.ToLower().Contains(w)))
-            {
-                if (forceQuit)
-                    context.Done<T>(value);
-                return true;
-            }
-            return false;
+
+            if (string.IsNullOrEmpty(message))
+                return false;
+
+            if (!quitWords.Any(w => message.ToLower().Contains(w))) return false;
+
+            if (forceQuit)
+                context.Done<T>(value);
+
+            return true;
         }
     }
 }
